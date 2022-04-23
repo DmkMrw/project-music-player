@@ -19,7 +19,7 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   height: 95vh;
   text-align: center;
   margin: 0 auto;
@@ -70,7 +70,7 @@
 // navigation
 
 .container-nav {
-  max-width: 1200px;
+  max-width: 100%;
   height: 5vh;
   text-align: center;
   margin: 0 auto;
@@ -114,7 +114,7 @@
 
 // SECTION CONTENT
 .container-content {
-  max-width: 1200px;
+  max-width: 100%;
   height: 95vh;
   text-align: center;
   margin: 0 auto;
@@ -130,7 +130,7 @@
 
 // SECTION SUBSCRIBE
 .subscribe-wrapper {
-  max-width: 1200px;
+  max-width: 100%;
   height: 70vh;
   position: relative;
   text-align: center;
@@ -138,6 +138,7 @@
   background-image: url(../images/subscribe.jpg);
   background-size: cover;
   background-position: center;
+  filter: brightness(80%);
 
   .subscribe-span{
     position: absolute;
@@ -214,12 +215,12 @@
   .album{
     position: absolute;
     top: 80%;
-    left: 58%;
+    left: 59%;
     text-align: right;
 
     .album-name {
       font-size: 25px;
-      color: #fff;
+      color: #ddd;
       letter-spacing: 3px;
     }
 
@@ -237,7 +238,7 @@
 }
 // SECTION FOOTER
 .footer {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   background-color: #000;
 
@@ -257,26 +258,31 @@
 // SECTION SEARCH
 
 .search {
-  max-width: 1200px;
+  max-width: 100%;
   height: 80vh;
   margin: 0 auto;
   background-color: #000;
+
   .container-search{
     padding-top: 50px;
     text-align: center;
     color: #fff;
+
     .h1-search{
       letter-spacing: 6px;
       padding-bottom: 30px;
     }
+
     .input {
       display: flex;
       align-items: center;
       justify-content: center;
+
       .h3-name {
         letter-spacing: 3px;
         padding-right: 15px;
       }
+
       .search-input{
         height: 30px;
         width: 190px;
@@ -284,6 +290,7 @@
         border: none;
       }
     }
+
     .search-btn {
       margin-left: 20px;
       height: 30px;
@@ -294,11 +301,13 @@
       color: #fff;
       font-size: 13px;
       letter-spacing: 2px;
-          &:hover {
-            cursor: pointer;
-            background: rgb(157, 3, 3);
-          }
+
+      &:hover {
+        cursor: pointer;
+        background: rgb(157, 3, 3);
+      }
     }
+
     .result {
       display: block;
       margin-top: 50px;
@@ -310,20 +319,23 @@
 // SECTION DISCOVER
 
 .discover {
-  max-width: 1200px;
+  max-width: 100%;
   height: 80vh;
   margin: 0 auto;
   background-color: #000;
+
   .container-discover{
     padding-top: 50px;
     text-align: center;
     color: #fff;
+
     .h1-discover{
       letter-spacing: 6px;
       padding-bottom: 30px;
     }
+
     .discover-text{
-        letter-spacing: 3px;
+      letter-spacing: 3px;
     }
   }
 }
