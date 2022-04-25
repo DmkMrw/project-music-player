@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+
 <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
 <link rel="stylesheet" type="text/css" href="{path}/dist/css/green-audio-player.min.css"> -->
 <link rel="stylesheet" href="css/style.css">
@@ -52,27 +54,12 @@
 
                     <!-- PLAYER TEMPLATE -->
                     <script id="template-player" type="text/x-handlebars-template">
-                    <li class="player">
+                    <ul class="player-list">
 
-                         <!-- author and title -->
-                         <header class="author-title">
-                         <h2 class="author__name-title">{{ author }} + {{title}}</h2>
-                         </header>
+                              <li id="{{ id }}">Author {{ author }} + {{ title }}!</li>
 
-                         <!-- <div class="gap-example">
-                              <audio>
-                                   <source src="audio/example-1.mp3" type="audio/mpeg">
-                              </audio>
-                         </div> -->
 
-                         <!-- categories and rankings-->
-
-                         <div class="categories-ranking">
-                              <span class="categories">Categories: {{categories}}</span>
-                              <span class="rankigs">#{{ranking}} in the ranking</span>
-                         </div>
-
-                    </li>
+                    </ul>
                     </script>
                </div>
           </div>
