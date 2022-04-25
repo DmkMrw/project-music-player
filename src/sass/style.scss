@@ -132,9 +132,26 @@
 
   .wrapper {
     margin: 0 auto;
-    width: 400px;
+    width: 350px;
     height: 100%;
     background-color: #f00;
+    padding-top: 50px;
+  }
+}
+
+.song-author-title {
+  color: #fff;
+  list-style: none;
+  .author-name-title{
+    letter-spacing: 1px;
+    padding: 0 15px 20px 15px;
+  }
+  .bottom-player{
+    font-size: 10px;
+    color: #ddd;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px 35px 15px;
   }
 }
 

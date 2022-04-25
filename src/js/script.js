@@ -1,5 +1,5 @@
 const templates = {
-  player: Handlebars.compile(document.querySelector('#template-player').innerHTML)
+  player: Handlebars.compile(document.getElementById('template-player').innerHTML)
 };
 
 // Pages switch
@@ -44,7 +44,8 @@ fetch(url)
       const songTitle = oneSong.title;
       // const songAuthor = oneSong.author;
       const songFileName = oneSong.filename.toLowerCase();
-      // const songCategories = oneSong.categories;
+      const songCategories = oneSong.categories;
+      const songRanking = oneSong.ranking;
 
       // console.log(songAuthor, songCategories);
 
@@ -53,14 +54,13 @@ fetch(url)
 
       const nameSongAndAuthor = songFileName.split('_').join(' ').split('.mp3').join('').split('-').join('');
       const songTitleLowerCase = songTitle.toLowerCase();
-      const authorName = nameSongAndAuthor.split(songTitleLowerCase).join('');
+      const authorName = nameSongAndAuthor.split(songTitleLowerCase).join('').trim().toUpperCase();
 
-      // console.log('authorName', authorName);
+      console.log('authorName', authorName);
       // console.log(songTitle.toLowerCase());
 
-
       // PUSH DATA TO dataContent
-      dataContent(songId, authorName, songTitle);
+      dataContent(songId, authorName, songTitle, songCategories, songRanking);
 
       //PUSH DATA TO authorAndTitle
       getCorrectAuthorName(authorName);
@@ -68,15 +68,13 @@ fetch(url)
   });
 
 
-const dataContent = function (id, author, title) {
+const dataContent = function (id, author, title, categories, ranking) {
 
-  const generatedData = { id: id, author: author, title: title };
-  // console.log('generatedDara', generatedData);
+  const generatedData = { id: id, author: author, title: title, categories: categories, ranking: ranking };
+
   const pushGeneratedData = templates.player(generatedData);
-  // console.log('push', pushGeneratedData);
-  // let html = '';
-  console.log(pushGeneratedData);
-  // html += pushGeneratedData;
+
+  document.querySelector('.wrapper').innerHTML += pushGeneratedData;
 };
 
 

@@ -9,9 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
+<link rel="stylesheet" type="text/css" href="{path}/dist/css/green-audio-player.min.css">
 
-<!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
-<link rel="stylesheet" type="text/css" href="{path}/dist/css/green-audio-player.min.css"> -->
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -54,13 +54,18 @@
 
                     <!-- PLAYER TEMPLATE -->
                     <script id="template-player" type="text/x-handlebars-template">
-                    <ul class="player-list">
-
-                              <li id="{{ id }}">Author {{ author }} + {{ title }}!</li>
-
-
-                    </ul>
+                         <ul>
+                              <li class='song-author-title' id="{{ id }}">
+                                   <h4 class='author-name-title'>{{ author }} - {{ title }}</h4>
+                                   <!--PLAYER-->
+                                   <div class="bottom-player">
+                                        <span class='categories'>Categories: {{categories}}</span>
+                                        <span class='ranking'>#{{ranking}} in the ranking</span>
+                                   </div>
+                              </li>
+                         </ul>
                     </script>
+
                </div>
           </div>
      </section>
@@ -116,8 +121,9 @@
           </div>
      </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
-<!-- <script src="{path}/dist/js/green-audio-player.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script> -->
+
+<script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
+<script src="{path}/dist/js/green-audio-player.js"></script>
 
 <script src="js/script.js"></script>
 </body>
