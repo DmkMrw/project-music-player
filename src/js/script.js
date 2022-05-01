@@ -1,5 +1,8 @@
+/* global GreenAudioPlayer*/
+
 const templates = {
-  player: Handlebars.compile(document.getElementById('template-player').innerHTML)
+  player: Handlebars.compile(document.getElementById('template-player').innerHTML),
+  discover: Handlebars.compile(document.getElementById('template-player-discover').innerHTML),
 };
 
 // Pages switch
@@ -43,57 +46,54 @@ fetch(url)
       const songId = oneSong.id;
       const songTitle = oneSong.title;
       // const songAuthor = oneSong.author;
+      const songName = oneSong.filename;
       const songFileName = oneSong.filename.toLowerCase();
       const songCategories = oneSong.categories;
       const songRanking = oneSong.ranking;
 
+      songsArr.push(songName);
       // console.log(songAuthor, songCategories);
 
 
       // GET DATA FOR FORMAT AUTHOR NAME
 
-      const nameSongAndAuthor = songFileName.split('_').join(' ').split('.mp3').join('').split('-').join('');
+      const nameSongAndAuthor = songFileName.replaceAll('_', ' ').replace('.mp3', '').replace('-', ' ');
       const songTitleLowerCase = songTitle.toLowerCase();
       const authorName = nameSongAndAuthor.split(songTitleLowerCase).join('').trim().toUpperCase();
 
-      console.log('authorName', authorName);
-      // console.log(songTitle.toLowerCase());
 
       // PUSH DATA TO dataContent
-      dataContent(songId, authorName, songTitle, songCategories, songRanking);
+      dataContent(songId, authorName, songTitle, songCategories, songRanking, songName);
 
-      //PUSH DATA TO authorAndTitle
-      getCorrectAuthorName(authorName);
     }
+  })
+  .then(function () {
+    GreenAudioPlayer.init({
+      selector: '.gap-example', // inits Green Audio Player on each audio container that has class "player"
+      stopOthersOnPlay: true
+    });
   });
 
 
-const dataContent = function (id, author, title, categories, ranking) {
+const dataContent = function (id, author, title, categories, ranking, songName) {
 
-  const generatedData = { id: id, author: author, title: title, categories: categories, ranking: ranking };
+  const generatedData = { id: id, author: author, title: title, categories: categories, ranking: ranking, songName:songName };
 
   const pushGeneratedData = templates.player(generatedData);
 
   document.querySelector('.wrapper').innerHTML += pushGeneratedData;
+  // console.log('songName', songName);
 };
 
+let songsArr = [];
+console.log(songsArr);
 
-const getCorrectAuthorName = function (author) {
-  // console.log('authorName', author);
-
-  const authorTrim = author.trim();
-
-  formatName(authorTrim);
-  console.log(formatName(authorTrim));
-
-  function formatName(name) {
-
-    const firstNameAndLastName = name.split(' ');
-    let firstName = firstNameAndLastName[0];
-    let lastName = firstNameAndLastName[1];
-    firstName = firstName.charAt(0).toUpperCase() + firstName.substr(1).toLowerCase();
-    lastName = lastName.charAt(0).toUpperCase() + lastName.substr(1).toLowerCase();
-    return firstName + ' ' + lastName;
-  }
-
+const randomSong = function (array) {
+  console.log('array.length', array.length);
+  let index =Math.floor(Math.random()*array.length);
+  console.log('index', index);
+  console.log('arrIndex', array[index]);
+  return array[index];
 };
+
+randomSong(songsArr);

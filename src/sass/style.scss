@@ -1,3 +1,17 @@
+// // normalize default styles
+// @import "normalize";
+
+// // variables
+// @import "variables";
+
+// // common styles
+// @import "layout";
+// @import "global";
+// @import "typography";
+
+
+
+
 *{
   margin: 0;
   padding: 0;
@@ -132,9 +146,9 @@
 
   .wrapper {
     margin: 0 auto;
-    width: 350px;
+    width: 400px;
     height: 100%;
-    background-color: #f00;
+    // background-color: #f00;
     padding-top: 50px;
   }
 }
@@ -142,16 +156,18 @@
 .song-author-title {
   color: #fff;
   list-style: none;
+
   .author-name-title{
     letter-spacing: 1px;
-    padding: 0 15px 20px 15px;
+    padding: 0 15px 30px 15px;
   }
+
   .bottom-player{
     font-size: 10px;
     color: #ddd;
     display: flex;
     justify-content: space-between;
-    padding: 0 15px 35px 15px;
+    padding: 15px 15px 45px 15px;
   }
 }
 
@@ -352,9 +368,13 @@
   background-color: #000;
 
   .container-discover{
-    padding-top: 50px;
     text-align: center;
     color: #fff;
+    margin: 0 auto;
+    width: 400px;
+    height: 100%;
+    // background-color: #f00;
+    padding-top: 50px;
 
     .h1-discover{
       letter-spacing: 6px;
@@ -362,9 +382,21 @@
     }
 
     .discover-text{
+      display: block;
+      margin-top: 20px;
       letter-spacing: 3px;
     }
   }
 }
+
+.green-audio-player .slider .gap-progress {
+  background-color: #f00;
+}
+
+.green-audio-player .slider .gap-progress .pin{
+  background-color: #f00;
+}
+
+
 
 

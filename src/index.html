@@ -9,8 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
 
+<!-- PLAYER -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
-<link rel="stylesheet" type="text/css" href="{path}/dist/css/green-audio-player.min.css">
+<!--PLAYER-->
 
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -57,6 +58,12 @@
                          <ul>
                               <li class='song-author-title' id="{{ id }}">
                                    <h4 class='author-name-title'>{{ author }} - {{ title }}</h4>
+                                   <!--PLAYER-->
+                                   <div class="gap-example">
+                                        <audio>
+                                             <source src="songs/{{ songName }}"  type="audio/mpeg">
+                                        </audio>
+                                   </div>
                                    <!--PLAYER-->
                                    <div class="bottom-player">
                                         <span class='categories'>Categories: {{categories}}</span>
@@ -107,6 +114,24 @@
      <div class="container-discover">
           <h1 class="h1-discover">DISCOVER</h1>
           <span class="discover-text">Give it try!</span>
+          <script id="template-player-discover" type="text/x-handlebars-template">
+               <ul>
+                    <li class='song-author-title' id="{{ id }}">
+                         <h4 class='author-name-title'>{{ author }} - {{ title }}</h4>
+                         <!--PLAYER-->
+                         <div class="gap-example">
+                              <audio>
+                                   <source src="songs/{{ songName }}"  type="audio/mpeg">
+                              </audio>
+                         </div>
+                         <!--PLAYER-->
+                         <div class="bottom-player">
+                              <span class='categories'>Categories: {{categories}}</span>
+                              <span class='ranking'>#{{ranking}} in the ranking</span>
+                         </div>
+                    </li>
+               </ul>
+          </script>
      </div>
 
      <!-- PLAYER -->
@@ -122,9 +147,11 @@
      </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
 
+<!-- PLAYER -->
 <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
-<script src="{path}/dist/js/green-audio-player.js"></script>
+<!--PLAYER-->
 
-<script src="js/script.js"></script>
+
+<script src="js/script.js" type="module"></script>
 </body>
 </html>
