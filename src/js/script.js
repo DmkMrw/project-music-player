@@ -2,7 +2,7 @@
 
 const templates = {
   player: Handlebars.compile(document.getElementById('template-player').innerHTML),
-  discover: Handlebars.compile(document.getElementById('template-player-discover').innerHTML),
+  search: Handlebars.compile(document.getElementById('template-search').innerHTML),
 };
 
 // Pages switch
@@ -11,7 +11,7 @@ const allPageBtn = document.querySelectorAll('.page-btn');
 
 for (let pageBtn of allPageBtn) {
   pageBtn.addEventListener('click', function () {
-    console.log('this', this);
+    // console.log('this', this);
     if (!this.classList.value.includes('active')) {
 
       for (let pageBtn of allPageBtn) {
@@ -36,13 +36,12 @@ fetch(url)
     return response.json();
   })
   .then(function (parsedResponse) {
-    // console.log('parsed', parsedResponse);
 
     //GET DATA FROM API
 
     for (let oneSong of parsedResponse) {
       // console.log('one', oneSong);
-
+      dataPayload.push(oneSong);
       const songId = oneSong.id;
       const songTitle = oneSong.title;
       // const songAuthor = oneSong.author;
@@ -50,10 +49,6 @@ fetch(url)
       const songFileName = oneSong.filename.toLowerCase();
       const songCategories = oneSong.categories;
       const songRanking = oneSong.ranking;
-
-      songsArr.push(songName);
-      // console.log(songAuthor, songCategories);
-
 
       // GET DATA FOR FORMAT AUTHOR NAME
 
@@ -63,37 +58,122 @@ fetch(url)
 
 
       // PUSH DATA TO dataContent
-      dataContent(songId, authorName, songTitle, songCategories, songRanking, songName);
+      prepareTemplate(songId, authorName, songTitle, songCategories, songRanking, songName);
 
     }
   })
   .then(function () {
     GreenAudioPlayer.init({
-      selector: '.gap-example', // inits Green Audio Player on each audio container that has class "player"
+      selector: '.home .player', // inits Green Audio Player on each audio container that has class "player"
       stopOthersOnPlay: true
     });
   });
 
+let arrData = [];
+console.log('arrdata', arrData);
 
-const dataContent = function (id, author, title, categories, ranking, songName) {
+
+const prepareTemplate = function (id, author, title, categories, ranking, songName) {
 
   const generatedData = { id: id, author: author, title: title, categories: categories, ranking: ranking, songName:songName };
 
   const pushGeneratedData = templates.player(generatedData);
 
   document.querySelector('.wrapper').innerHTML += pushGeneratedData;
-  // console.log('songName', songName);
+
+  arrData.push(pushGeneratedData);
 };
 
-let songsArr = [];
-console.log(songsArr);
+function discoverMusic () {
+  const data = arrData[Math.floor(Math.random() * arrData.length)];
+  document.querySelector('.container-discover').innerHTML += data;
 
-const randomSong = function (array) {
-  console.log('array.length', array.length);
-  let index =Math.floor(Math.random()*array.length);
-  console.log('index', index);
-  console.log('arrIndex', array[index]);
-  return array[index];
+  GreenAudioPlayer.init({
+    selector: '.discover .player', // inits Green Audio Player on each audio container that has class "player"
+    stopOthersOnPlay: true
+  });
+}
+
+document.getElementById('discover').addEventListener('click', () => {
+  document.querySelector('.container-discover').innerHTML = '';
+  discoverMusic();
+});
+
+//SEARCH//
+
+const dataPayload = [];
+
+const input = document.querySelector('.search-input');
+const searchBtn = document.querySelector('.search-btn');
+
+const searchSong = function () {
+  console.log('klik');
+
+  let keyWord = input.value;
+  let filteredSongs = dataPayload.filter(song => song.title.toLowerCase().includes(keyWord.toLowerCase()));
+  console.log('filteredSong', filteredSongs);
+
+  if (filteredSongs.length == 0) {
+    alert('Brak piosenek');
+  }
+
+
+  const prepareTemplate = function (id, author, title, categories, ranking, songName) {
+
+    const generatedData = { id: id, author: author, title: title, categories: categories, ranking: ranking, songName:songName};
+
+    const pushGeneratedData = templates.search(generatedData);
+
+
+    // Prepare word 'song'
+
+    document.querySelector('.container-search').innerHTML += pushGeneratedData;
+    document.querySelector('.result').style.display = 'block';
+    document.querySelector('.result-number').textContent = filteredSongs.length;
+
+    let wordSong;
+
+    if (filteredSongs.length > 1) {
+      wordSong = ' songs...';
+    } else if (filteredSongs.length == 1) {
+      wordSong = ' song...';
+    }
+
+    document.querySelector('.wordSong').textContent = wordSong;
+  };
+
+
+
+  for (let filterSong of filteredSongs) {
+    const songId = filterSong.id;
+    const songTitle = filterSong.title;
+    const songName = filterSong.filename;
+    const songFileName = filterSong.filename.toLowerCase();
+    const songCategories = filterSong.categories;
+    const songRanking = filterSong.ranking;
+
+    // GET DATA FOR FORMAT AUTHOR NAME
+
+    const nameSongAndAuthor = songFileName.replaceAll('_', ' ').replace('.mp3', '').replace('-', ' ');
+    const songTitleLowerCase = songTitle.toLowerCase();
+    const authorName = nameSongAndAuthor.split(songTitleLowerCase).join('').trim().toUpperCase();
+
+    prepareTemplate(songId, authorName, songTitle, songCategories, songRanking, songName);
+
+
+  }
+  console.log('filtersong', filteredSongs);
+
+  GreenAudioPlayer.init({
+    selector: '.search .player', // inits Green Audio Player on each audio container that has class "player"
+    stopOthersOnPlay: true
+  });
 };
 
-randomSong(songsArr);
+searchBtn.addEventListener('click', function () {
+  if (document.querySelector('.search-input').value != '') {
+    searchSong();
+  } else alert('Wpisz tytuł');
+});
+
+
