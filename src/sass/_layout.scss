@@ -1,1 +1,145 @@
 // universal rules .container
+
+
+
+.active-page{
+  display: block;
+}
+
+.section {
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 100%;
+  height: 95vh;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0px -250px 175px black;
+  filter: grayscale(0.1);
+}
+
+.splash-inner {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.title {
+  color: white;
+  font-size: 100px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  letter-spacing: 60px;
+  margin-right: -30px;
+  padding-bottom: 20px;
+}
+
+.title-description-1,
+.title-description-2,
+.title-description-3 {
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 10px;
+  margin-right: 5px;
+  padding-bottom: 20px;
+}
+
+// navigation
+
+.container-nav {
+  max-width: 100%;
+  height: 5vh;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #000;
+
+  .nav {
+    height: 100%;
+    width: 500px;
+    margin: 0 auto;
+
+    .nav-ul{
+      list-style: none;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .nav-li {
+        color: rgb(170, 170, 170);
+        font-size: 17px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+
+        &:hover {
+          cursor: pointer;
+          color: $primaryColor;;
+        }
+      }
+
+      .active{
+        color: $primaryColor;;
+      }
+    }
+  }
+}
+
+.song-author-title {
+  color: $primaryColor;;
+  list-style: none;
+
+  .author-name-title{
+    letter-spacing: 1px;
+    padding: 0 15px 30px 15px;
+  }
+
+  .bottom-player{
+    font-size: 10px;
+    color: #ddd;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 15px 45px 15px;
+  }
+}
+
+.green-audio-player .slider .gap-progress {
+  background-color: #f00;
+}
+
+.green-audio-player .slider .gap-progress .pin{
+  background-color: #f00;
+}
+
+// SECTION FOOTER
+.footer {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #000;
+
+  .rights {
+    color: $primaryColor;;
+    text-align: center;
+
+    .footer-content{
+      font-size: 10px;
+      letter-spacing: 3px;
+      line-height: 45px;
+    }
+  }
+}

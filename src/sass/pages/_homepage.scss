@@ -1,0 +1,133 @@
+//SECTION HOME
+
+.container-content {
+  max-width: 100%;
+  height: 95vh;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #000;
+
+  .wrapper {
+    margin: 0 auto;
+    width: 400px;
+    height: 100%;
+    padding-top: 50px;
+  }
+}
+
+
+
+
+
+
+
+
+
+// SECTION SUBSCRIBE
+.subscribe-wrapper {
+  max-width: 100%;
+  height: 70vh;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  background-image: url(../images/subscribe.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: brightness(80%);
+
+  .subscribe-span{
+    position: absolute;
+    top: -33px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 54px;
+    color: $primaryColor;;
+    letter-spacing: 12px;
+  }
+
+  .subscribe-span-bold{
+    font-size: 56px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+  }
+
+  .subscribe-btn{
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    padding: 20px 20px;
+    background-color: #f00;
+    border-radius: 5px;
+    border: none;
+    color: $primaryColor;;
+    font-size: 15px;
+    letter-spacing: 3px;
+
+    &:hover {
+      cursor: pointer;
+      background: rgb(157, 3, 3);
+    }
+  }
+
+  .artist-img{
+    height: 60%;
+    position: absolute;
+    top: 17%;
+    left: 59%;
+    box-shadow: 3px 3px 5px black;
+  }
+
+  .img-description {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    color: $primaryColor;;
+    font-size: 50px;
+    letter-spacing: 13px;
+    font-weight: 900;
+
+    .artist-name{
+      margin-left: -70px;
+    }
+
+    .artist-name::after{
+      content: "\A";
+      white-space: pre;
+    }
+
+    .artist-surname{
+      margin-left: 105px;
+    }
+
+    .red-artist-surname{
+      color: #f00;
+
+    }
+  }
+
+  .album{
+    position: absolute;
+    top: 80%;
+    left: 59%;
+    text-align: right;
+
+    .album-name {
+      font-size: 25px;
+      color: #ddd;
+      letter-spacing: 3px;
+    }
+
+    .album-name::after{
+      content: "\A";
+      white-space: pre;
+    }
+
+    .album-description {
+      font-size: 20px;
+      color: $primaryColor;;
+      letter-spacing: 3px;
+    }
+  }
+}

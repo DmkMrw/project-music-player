@@ -1,1 +1,18 @@
-// button styles
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.author__name-title{
+  color: $primaryColor;
+  font-size: 40px;
+  display: block;
+}
+
+.section {
+  margin: 0 auto;
+}
+
+
