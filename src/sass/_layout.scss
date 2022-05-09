@@ -117,11 +117,11 @@
 }
 
 .green-audio-player .slider .gap-progress {
-  background-color: #f00;
+  background-color: $redColor;
 }
 
 .green-audio-player .slider .gap-progress .pin{
-  background-color: #f00;
+  background-color: $redColor;
 }
 
 // SECTION FOOTER
@@ -141,3 +141,59 @@
     }
   }
 }
+
+
+@media (max-width:480px){
+  .title {
+  color: $primaryColor;
+  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  letter-spacing: 40px;
+  // padding-left: 40px;
+  // margin-right: -40px;
+  padding-bottom: 30px;
+  }
+
+  .container-nav {
+  max-width: 100%;
+  height: 25vh;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #000;
+
+  .nav {
+    height: 100%;
+    width: 500px;
+    margin: 0 auto;
+
+    .nav-ul{
+      list-style: none;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+      .nav-li {
+        color: rgb(170, 170, 170);
+        font-size: 25px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+
+        &:hover {
+          cursor: pointer;
+          color: $primaryColor;;
+        }
+      }
+
+      .active{
+        color: $primaryColor;;
+      }
+    }
+  }
+}
+}
+
+
