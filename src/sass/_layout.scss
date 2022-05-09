@@ -1,6 +1,4 @@
-// universal rules .container
-
-
+// universal rules
 
 .active-page{
   display: block;
@@ -101,7 +99,7 @@
 }
 
 .song-author-title {
-  color: $primaryColor;;
+  color: $primaryColor;
   list-style: none;
 
   .author-name-title{
@@ -133,7 +131,7 @@
   background-color: #000;
 
   .rights {
-    color: $primaryColor;;
+    color: $primaryColor;
     text-align: center;
 
     .footer-content{

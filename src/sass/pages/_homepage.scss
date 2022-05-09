@@ -15,14 +15,6 @@
   }
 }
 
-
-
-
-
-
-
-
-
 // SECTION SUBSCRIBE
 .subscribe-wrapper {
   max-width: 100%;
@@ -43,7 +35,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 54px;
-    color: $primaryColor;;
+    color: $primaryColor;
     letter-spacing: 12px;
   }
 
@@ -61,7 +53,7 @@
     background-color: #f00;
     border-radius: 5px;
     border: none;
-    color: $primaryColor;;
+    color: $primaryColor;
     font-size: 15px;
     letter-spacing: 3px;
 
@@ -82,8 +74,8 @@
   .img-description {
     position: absolute;
     top: 50%;
-    left: 40%;
-    color: $primaryColor;;
+    left: 47%;
+    color: $primaryColor;
     font-size: 50px;
     letter-spacing: 13px;
     font-weight: 900;
@@ -126,7 +118,7 @@
 
     .album-description {
       font-size: 20px;
-      color: $primaryColor;;
+      color: $primaryColor;
       letter-spacing: 3px;
     }
   }
