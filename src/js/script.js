@@ -5,9 +5,22 @@ const templates = {
   search: Handlebars.compile(document.getElementById('template-search').innerHTML),
 };
 
+const select = {
+  pageButtons: '.page-btn',
+  pages: '.page',
+  wrapper: '.wrapper',
+  containerDiscover: '.container-discover',
+  searchInput: '.search-input',
+  searchBtn: '.search-btn',
+  containerSearch: '.container-search',
+  result: '.result',
+  resultNumber: '.result-number',
+  wordSong: '.wordSong',
+};
+
 // Pages switch
 
-const allPageBtn = document.querySelectorAll('.page-btn');
+const allPageBtn = document.querySelectorAll(select.pageButtons);
 
 for (let pageBtn of allPageBtn) {
   pageBtn.addEventListener('click', function () {
@@ -16,7 +29,7 @@ for (let pageBtn of allPageBtn) {
 
       for (let pageBtn of allPageBtn) {
         pageBtn.classList.remove('active');
-        const allPages = document.querySelectorAll('.page');
+        const allPages = document.querySelectorAll(select.pages);
         for (let page of allPages) {
           page.classList.remove('active-page');
         }
@@ -79,14 +92,14 @@ const prepareTemplate = function (id, author, title, categories, ranking, songNa
 
   const pushGeneratedData = templates.player(generatedData);
 
-  document.querySelector('.wrapper').innerHTML += pushGeneratedData;
+  document.querySelector(select.wrapper).innerHTML += pushGeneratedData;
 
   arrData.push(pushGeneratedData);
 };
 
 function discoverMusic () {
   const data = arrData[Math.floor(Math.random() * arrData.length)];
-  document.querySelector('.container-discover').innerHTML += data;
+  document.querySelector(select.containerDiscover).innerHTML += data;
 
   GreenAudioPlayer.init({
     selector: '.discover .player', // inits Green Audio Player on each audio container that has class "player"
@@ -95,7 +108,7 @@ function discoverMusic () {
 }
 
 document.getElementById('discover').addEventListener('click', () => {
-  document.querySelector('.container-discover').innerHTML = '';
+  document.querySelector(select.containerDiscover).innerHTML = '';
   discoverMusic();
 });
 
@@ -103,8 +116,8 @@ document.getElementById('discover').addEventListener('click', () => {
 
 const dataPayload = [];
 
-const input = document.querySelector('.search-input');
-const searchBtn = document.querySelector('.search-btn');
+const input = document.querySelector(select.searchInput);
+const searchBtn = document.querySelector(select.searchBtn);
 
 const searchSong = function () {
   console.log('klik');
@@ -127,9 +140,9 @@ const searchSong = function () {
 
     // Prepare word 'song'
 
-    document.querySelector('.container-search').innerHTML += pushGeneratedData;
-    document.querySelector('.result').style.display = 'block';
-    document.querySelector('.result-number').textContent = filteredSongs.length;
+    document.querySelector(select.containerSearch).innerHTML += pushGeneratedData;
+    document.querySelector(select.result).style.display = 'block';
+    document.querySelector(select.resultNumber).textContent = filteredSongs.length;
 
     let wordSong;
 
@@ -139,7 +152,7 @@ const searchSong = function () {
       wordSong = ' song...';
     }
 
-    document.querySelector('.wordSong').textContent = wordSong;
+    document.querySelector(select.wordSong).textContent = wordSong;
   };
 
 
@@ -171,7 +184,7 @@ const searchSong = function () {
 };
 
 searchBtn.addEventListener('click', function () {
-  if (document.querySelector('.search-input').value != '') {
+  if (document.querySelector(select.searchInput).value != '') {
     searchSong();
   } else alert('Wpisz tytuł');
 });
