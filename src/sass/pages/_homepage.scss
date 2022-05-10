@@ -129,7 +129,7 @@
 @media (max-width:480px){
 
   .title {
-    font-size: 58px;
+    font-size: 54px;
     letter-spacing: 40px;
   }
   .container-content {
@@ -141,7 +141,7 @@
 
     .wrapper {
       margin: 0 auto;
-      width: 400px;
+      width: 350px;
       height: 100%;
       padding: 50px 0;
     }
@@ -151,6 +151,10 @@
     max-width: 500px;
   }
 
+  .green-audio-player{
+    width: 350px !important;
+    margin: 0 auto;
+  }
 
 
   // SECTION SUBSCRIBE
