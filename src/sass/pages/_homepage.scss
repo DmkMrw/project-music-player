@@ -127,6 +127,11 @@
 //MAX WIDTH 480px
 
 @media (max-width:480px){
+
+  .title {
+    font-size: 58px;
+    letter-spacing: 40px;
+  }
   .container-content {
     max-width: 100%;
     height: 100%;
@@ -141,6 +146,12 @@
       padding: 50px 0;
     }
   }
+
+  .container-nav .nav{
+    max-width: 500px;
+  }
+
+
 
   // SECTION SUBSCRIBE
   .subscribe-wrapper {
@@ -192,7 +203,7 @@
     }
 
     .artist-img{
-      height: 40%;
+      height: 35%;
       position: absolute;
       top: 45%;
       left: 50%;
@@ -203,7 +214,7 @@
     .img-description {
       position: absolute;
       top: 48%;
-      left: 23%;
+      left: 18%;
       color: $primaryColor;
       font-size: 26px;
       letter-spacing: 5px;
@@ -257,7 +268,11 @@
 
 // MAX WIDTH 1024px
 
-@media (max-width:1024px){
+@media (min-width:481px) and (max-width:1024px){
+  .title {
+    font-size: 69px;
+    letter-spacing: 42px;
+  }
   .container-content {
     height: 100%;
     .wrapper {
@@ -267,14 +282,24 @@
   }
 
   .subscribe-wrapper{
+    .artist-img{
+      height: 34%;
+    }
     .img-description {
         position: absolute;
-        top: 50%;
-        left: 37%;
+        top: 35%;
+        left: 10%;
         color: $primaryColor;
         font-size: 50px;
         letter-spacing: 13px;
         font-weight: 900;
     }
+    .subscribe-btn{
+      top: 69%;
+    }
+  }
+
+  .container-nav .nav{
+    max-width: 500px;
   }
 }
