@@ -127,11 +127,11 @@
 //MAX WIDTH 480px
 
 @media (max-width:480px){
-
   .title {
     font-size: 54px;
     letter-spacing: 40px;
   }
+
   .container-content {
     max-width: 100%;
     height: 100%;
@@ -277,8 +277,10 @@
     font-size: 69px;
     letter-spacing: 42px;
   }
+
   .container-content {
     height: 100%;
+
     .wrapper {
       height: 100%;
       padding: 50px 0;
@@ -289,15 +291,17 @@
     .artist-img{
       height: 34%;
     }
+
     .img-description {
-        position: absolute;
-        top: 35%;
-        left: 10%;
-        color: $primaryColor;
-        font-size: 50px;
-        letter-spacing: 13px;
-        font-weight: 900;
+      position: absolute;
+      top: 35%;
+      left: 10%;
+      color: $primaryColor;
+      font-size: 50px;
+      letter-spacing: 13px;
+      font-weight: 900;
     }
+
     .subscribe-btn{
       top: 69%;
     }
