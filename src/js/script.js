@@ -8,9 +8,7 @@ const allPageBtn = document.querySelectorAll(select.pageButtons);
 
 for (let pageBtn of allPageBtn) {
   pageBtn.addEventListener('click', function () {
-    // console.log('this', this);
     if (!this.classList.value.includes('active')) {
-
       for (let pageBtn of allPageBtn) {
         pageBtn.classList.remove('active');
         const allPages = document.querySelectorAll(select.pages);
@@ -37,11 +35,9 @@ fetch(url)
     //GET DATA FROM API
 
     for (let oneSong of parsedResponse) {
-      // console.log('one', oneSong);
       dataPayload.push(oneSong);
       const songId = oneSong.id;
       const songTitle = oneSong.title;
-      // const songAuthor = oneSong.author;
       const songName = oneSong.filename;
       const songFileName = oneSong.filename.toLowerCase();
       const songCategories = oneSong.categories;
@@ -67,7 +63,6 @@ fetch(url)
   });
 
 let arrData = [];
-console.log('arrdata', arrData);
 
 
 const prepareTemplate = function (id, author, title, categories, ranking, songName) {
@@ -76,7 +71,7 @@ const prepareTemplate = function (id, author, title, categories, ranking, songNa
 
   const pushGeneratedData = templates.player(generatedData);
 
-  document.querySelector(select.wrapper).innerHTML += pushGeneratedData;
+  document.querySelector(select.containerHome).innerHTML += pushGeneratedData;
 
   arrData.push(pushGeneratedData);
 };
@@ -96,19 +91,17 @@ document.getElementById('discover').addEventListener('click', () => {
   discoverMusic();
 });
 
+
 //SEARCH//
 
 const dataPayload = [];
 
 const input = document.querySelector(select.searchInput);
-const searchBtn = document.querySelector(select.searchBtn);
 
 const searchSong = function () {
-  console.log('klik');
 
   let keyWord = input.value;
   let filteredSongs = dataPayload.filter(song => song.title.toLowerCase().includes(keyWord.toLowerCase()));
-  console.log('filteredSong', filteredSongs);
 
   if (filteredSongs.length == 0) {
     alert('Brak piosenek');
@@ -139,7 +132,8 @@ const searchSong = function () {
     document.querySelector(select.wordSong).textContent = wordSong;
   };
 
-
+  document.querySelector(select.containerSearch).innerHTML = '';
+  document.querySelector(select.searchInput).value = '';
 
   for (let filterSong of filteredSongs) {
     const songId = filterSong.id;
@@ -159,7 +153,6 @@ const searchSong = function () {
 
 
   }
-  console.log('filtersong', filteredSongs);
 
   GreenAudioPlayer.init({
     selector: '.search .player', // inits Green Audio Player on each audio container that has class "player"
@@ -167,10 +160,13 @@ const searchSong = function () {
   });
 };
 
+const searchBtn = document.querySelector(select.searchBtn);
+
 searchBtn.addEventListener('click', function () {
   if (document.querySelector(select.searchInput).value != '') {
     searchSong();
   } else alert('Wpisz tytuł');
 });
+
 
 

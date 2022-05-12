@@ -51,27 +51,9 @@
 <section class="home page active-page">
      <section class="content">
           <div class="container-content">
-               <div class="wrapper">
+               <div class="wrapper-home">
 
                     <!-- PLAYER TEMPLATE -->
-                    <script id="template-player" type="text/x-handlebars-template">
-                         <ul>
-                              <li class='song-author-title' id="{{ id }}">
-                                   <h4 class='author-name-title'>{{ author }} - {{ title }}</h4>
-                                   <!--PLAYER-->
-                                   <div class="player">
-                                        <audio>
-                                             <source src="songs/{{ songName }}"  type="audio/mpeg">
-                                        </audio>
-                                   </div>
-                                   <!--PLAYER-->
-                                   <div class="bottom-player">
-                                        <span class='categories'>Categories: {{categories}}</span>
-                                        <span class='ranking'>#{{ranking}} in the ranking</span>
-                                   </div>
-                              </li>
-                         </ul>
-                    </script>
 
                </div>
           </div>
@@ -105,28 +87,11 @@
                  <button class="search-btn" type="button" >SEARCH</button>
                </div>
                <span class="result">We have found <span class="result-number">1</span><span class="wordSong"> song...</span></span>
-               <!-- <div class="wrapper"> -->
-                    <script id="template-search" type="text/x-handlebars-template">
-                         <!-- <span class="result">We have found {{numberOfSongs}} <span class="wordSong">song...</span></span></span> -->
-                              <ul>
-                                   <li class='song-author-title' id="{{ id }}">
-                                        <h4 class='author-name-title'>{{ author }} - {{ title }}</h4>
-                                        <!--PLAYER-->
-                                        <div class="player">
-                                             <audio>
-                                                  <source src="songs/{{ songName }}"  type="audio/mpeg">
-                                             </audio>
-                                        </div>
-                                        <!--PLAYER-->
-                                        <div class="bottom-player">
-                                             <span class='categories'>Categories: {{categories}}</span>
-                                             <span class='ranking'>#{{ranking}} in the ranking</span>
-                                        </div>
-                                   </li>
-                              </ul>
-                    </script>
+               <div class="wrapper-search">
 
-               <!-- </div> -->
+                    <!-- SEARCH TEMPLATE -->
+
+               </div>
 
           </div>
 </section>
@@ -157,6 +122,43 @@
 <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
 <!--PLAYER-->
 
+<script id="template-player" type="text/x-handlebars-template">
+                         <ul>
+                              <li class='song-author-title' id="{{ id }}">
+                                   <h4 class='author-name-title'>{{ author }} - {{ title }}</h4>
+                                   <!--PLAYER-->
+                                   <div class="player">
+                                        <audio>
+                                             <source src="songs/{{ songName }}"  type="audio/mpeg">
+                                        </audio>
+                                   </div>
+                                   <!--PLAYER-->
+                                   <div class="bottom-player">
+                                        <span class='categories'>Categories: {{categories}}</span>
+                                        <span class='ranking'>#{{ranking}} in the ranking</span>
+                                   </div>
+                              </li>
+                         </ul>
+                    </script>
+
+                    <script id="template-search" type="text/x-handlebars-template">
+                              <ul>
+                                   <li class='song-author-title' id="{{ id }}">
+                                        <h4 class='author-name-title'>{{ author }} - {{ title }}</h4>
+                                        <!--PLAYER-->
+                                        <div class="player">
+                                             <audio>
+                                                  <source src="songs/{{ songName }}"  type="audio/mpeg">
+                                             </audio>
+                                        </div>
+                                        <!--PLAYER-->
+                                        <div class="bottom-player">
+                                             <span class='categories'>Categories: {{categories}}</span>
+                                             <span class='ranking'>#{{ranking}} in the ranking</span>
+                                        </div>
+                                   </li>
+                              </ul>
+                    </script>
 
 <script src="js/script.js" type="module"></script>
 </body>

@@ -6,11 +6,11 @@ export const templates = {
 export const select = {
   pageButtons: '.page-btn',
   pages: '.page',
-  wrapper: '.wrapper',
+  containerHome: '.wrapper-home',
   containerDiscover: '.container-discover',
   searchInput: '.search-input',
   searchBtn: '.search-btn',
-  containerSearch: '.container-search',
+  containerSearch: '.wrapper-search',
   result: '.result',
   resultNumber: '.result-number',
   wordSong: '.wordSong',
