@@ -24,7 +24,7 @@ for (let pageBtn of allPageBtn) {
 
 // API
 
-const url = '//localhost:3131' + '/' + 'songs';
+const url = '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : '') + '/' + 'songs';
 
 fetch(url)
   .then(function (response) {
